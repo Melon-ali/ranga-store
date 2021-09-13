@@ -5,7 +5,8 @@ const loadProducts = () => {
 };
 
 
-// show all product in UI 
+/******* Show All Product in UI Start *********/
+
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
@@ -19,14 +20,19 @@ const showProducts = (products) => {
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
-      <h3>Count: ${product.rating.count}</h3>
-      <h4>Rata: ${product.rating.rate}</h4>
+      <h3>Average: ${product.rating.count}</h3>
+      <h4>Rating: ${product.rating.rate}</h4>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button id="details-btn" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+/******* Show All Product in UI End *********/
+
+/******* Cart Area Start *******/
+
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -42,7 +48,10 @@ const getInputValue = (id) => {
   return converted;
 };
 
-// main price update function
+/******* Cart Area End *******/
+
+/**** Main Price Update Function Start ****/
+
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
@@ -50,12 +59,15 @@ const updatePrice = (id, value) => {
   document.getElementById(id).innerText = Math.round(total);
 };
 
-// set innerText function
+/**** Main Price Update Function End ****/
+
+/****** Set InnerText Function ******/
 const setInnerText = (id, value) => {
   document.getElementById(id).innerText = Math.round(value);
 };
 
-// update delivery charge and total Tax
+/****** Update Delivery Charge and total Tax Start******/
+
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
   if (priceConverted > 200) {
@@ -73,7 +85,10 @@ const updateTaxAndCharge = () => {
   updateTotal();
 };
 
-//grandTotal update function
+/****** Update Delivery Charge and total Tax End******/
+
+/***** GrandTotal Update Function Start******/
+
 const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
@@ -82,3 +97,5 @@ const updateTotal = () => {
   document.getElementById("total").innerText = grandTotal;
 };
 loadProducts();
+
+/***** GrandTotal Update Function End******/

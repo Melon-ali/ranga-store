@@ -23,7 +23,7 @@ body {
 .search-button {
   padding: 10px 50px;
   border-radius: 25px;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 #all-products {
   display: grid;
@@ -36,8 +36,11 @@ body {
   justify-content: center;
 }
 .single-product {
+  margin: 5px;
+  border-radius: 5px;
   padding: 10px;
   transition: 0.6s;
+  background-color: #c2e1f1;
 }
 .single-product:hover {
   box-shadow: 4px 4px 7px gray;
